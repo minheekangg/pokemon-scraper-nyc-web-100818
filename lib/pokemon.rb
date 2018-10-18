@@ -7,5 +7,8 @@ class Pokemon
     self.send(("#{key}="),value)}
   end
 
+  def self.save
+  end
+
 
 end
