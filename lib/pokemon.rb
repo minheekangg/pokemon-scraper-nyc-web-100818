@@ -7,16 +7,7 @@ class Pokemon
     self.send(("#{key}="),value)}
   end
 
-  def save
-    sql = <<-SQL
-      INSERT INTO pokemon (name, type)
-      VALUES (?, ?);
-    SQL
-    DB[:conn].execute(sql, self.name, self.type)
-    result = DB[:conn].execute("SELECT * FROM pokemon;")
-    self.id = result.last["id"]
-    self
-  end
+
 
 
 end
