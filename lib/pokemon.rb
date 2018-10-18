@@ -7,8 +7,15 @@ class Pokemon
     self.send(("#{key}="),value)}
   end
 
-  def save(name, type, database_connection)
-    database_connection.execute("INSERT INTO cats (name, type) VALUES (?, ?)",name, type)
+  def save
+    sql = <<-SQL
+      INSERT INTO pokemon (name, type)
+      VALUES (?, ?);
+    SQL
+    DB[:conn].execute(sql, self.name, self.type)
+    result = DB[:conn].execute("SELECT * FROM tweets;")
+    self.id = result.last["id"]
+    self
   end
 
 
