@@ -12,7 +12,7 @@ class Pokemon
     end
 
   def self.find(name, type, database_connection)
-      database_connection.execute("SELECT * from pokemon where name = (?)",name, type)
+      database_connection.execute("SELECT * from pokemon where name = (?)",name)
     end
 
 
