@@ -13,7 +13,7 @@ class Pokemon
       VALUES (?, ?);
     SQL
     DB[:conn].execute(sql, self.name, self.type)
-    result = DB[:conn].execute("SELECT * FROM tweets;")
+    result = DB[:conn].execute("SELECT * FROM pokemon;")
     self.id = result.last["id"]
     self
   end
